@@ -1,23 +1,28 @@
 
-// 1. Define aquí los nombres de tus imágenes en la carpeta /imagenes
-const imageNames = [
-    'foto1.jpg',
-    'foto2.jpg',
-    'foto3.jpg'
-];
+// CONFIGURACIÓN: Solo cambia este número cuando subas más fotos
+const totalImagenes = 34; // Ejemplo: si tienes de la 1.jpg hasta la 10.jpg
+const extension = ".jpg"; // Asegúrate de que todas sean .jpg o .png
 
 const carousel = document.getElementById('carousel');
 let currentIndex = 0;
 
-// 2. Cargar imágenes dinámicamente
-imageNames.forEach(name => {
-    const img = document.createElement('img');
-    img.src = `imagenes/${name}`;
-    img.alt = "Momento especial";
-    carousel.appendChild(img);
-});
+// Generar las imágenes automáticamente
+function cargarImagenes() {
+    for (let i = 1; i <= totalImagenes; i++) {
+        const img = document.createElement('img');
+        img.src = `imagenes/${i}${extension}`;
+        img.alt = `Momento especial número ${i}`;
+        
+        // Manejo de errores: Si una imagen no existe, no rompe el sitio
+        img.onerror = function() {
+            this.style.display = 'none';
+        };
+        
+        carousel.appendChild(img);
+    }
+}
 
-// 3. Función para mover el carrusel
+// Lógica de movimiento
 function moveSlide(direction) {
     const slides = document.querySelectorAll('.carousel img');
     const totalSlides = slides.length;
@@ -34,8 +39,9 @@ function moveSlide(direction) {
     carousel.style.transform = `translateX(${offset}%)`;
 }
 
-// Opcional: Auto-reproducción cada 5 segundos
-setInterval(() => moveSlide(1), 5000);
+// Inicializar
+cargarImagenes();
+setInterval(() => moveSlide(1), 3000);
 
 
 // --- Lógica de la Lluvia de Corazones ---
