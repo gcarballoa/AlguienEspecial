@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Alguien Especial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Un pedacito de nuestro corazón</h1>        
+    </header>
+
+    <main>
+        <section class="carousel-container">
+            <div class="carousel" id="carousel">
+                </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </section>
+
+        <section class="messages-container">
+            <div class="message-card">
+                <p>"Eres la razón por la que sonrío cada mañana. Gracias por ser tú."</p>
+            </div>
+            <div class="message-card">
+                <p>"Cada momento a tu lado es un regalo que guardo con llave."</p>
+            </div>
+            <div class="message-card">
+                <p>"Mensaje 3."</p>
+            </div>
+            <div class="message-card">
+                <p>"Mensaje 4"</p>
+            </div>
+            </section>
+    </main>
+
+    <footer>
+        <p>Hecho con ❤️ para ti</p>
+        <div class="audio-control">
+            <button id="musicBtn" onclick="toggleMusic()">
+                <span id="musicIcon">🔇</span>
+            </button>
+        </div>
+
+        <audio id="backgroundMusic" loop>
+            <source src="audio/cancion.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

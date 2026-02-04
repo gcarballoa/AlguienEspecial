@@ -1,0 +1,173 @@
+:root {
+    --primary-color: #ff4d6d; /* Rosa vibrante */
+    --secondary-color: #ffb3c1; /* Rosa suave */
+    --accent-color: #7209b7; /* Toque púrpura para elegancia */
+    --bg-color: #fff0f3;
+    --text-color: #590d22;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Carrusel */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: -30px auto 40px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    background: #fff;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Botones del carrusel */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+button:hover { background: white; }
+.next { right: 0; }
+.prev { left: 0; }
+
+/* Mensajes */
+.messages-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.message-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.message-card:hover {
+    transform: translateY(-5px);
+}
+
+.message-card p {
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+}
+
+/* Contenedor de la lluvia */
+.heart-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que no interfiera con los clics en los botones */
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Aseguramos que los corazones no muevan el contenido de la página */
+.heart-particle {
+    position: fixed; /* Importante: Fijo respecto a la ventana del navegador */
+    top: -5vh;       /* Empieza un poco arriba de la parte visible */
+    user-select: none;
+    pointer-events: none; /* Evita que los corazones bloqueen clics en botones */
+    z-index: 9999;
+    font-size: 1.5rem;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        top: -5vh; /* Inicio fuera de pantalla */
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        top: 105vh; /* Fin fuera de pantalla por abajo */
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Botón de Audio Flotante */
+.audio-control {
+    position: fixed;
+    top: 50px;
+    /*bottom: 50px; */
+    right: 100px;
+    z-index: 10000; /* Asegura que esté por encima de otros elementos */
+}
+
+#musicBtn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+#musicBtn:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+}
