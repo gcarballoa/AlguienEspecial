@@ -161,7 +161,7 @@ footer {
 .audio-control {
     position: fixed;
     top: 30px;
-    left: 30px;
+    left: 5px;
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
 } 
 
@@ -194,8 +194,10 @@ footer {
     opacity: 1;
 }
 
-#icon-sonido {
+#musicIcon:hover {
     font-size: 1.2rem;
+        transform: scale(1.1);
+    background: var(--accent-color);
 }
 
 .text-sonido {
