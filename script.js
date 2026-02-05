@@ -1,6 +1,6 @@
 
 // CONFIGURACIÓN: Solo cambia este número cuando subas más fotos
-const totalImagenes = 34; // Ejemplo: si tienes de la 1.jpg hasta la 10.jpg
+const totalImagenes = 40; // Ejemplo: si tienes de la 1.jpg hasta la 10.jpg
 const extension = ".jpg"; // Asegúrate de que todas sean .jpg o .png
 
 const carousel = document.getElementById('carousel');
